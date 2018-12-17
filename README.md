@@ -1,5 +1,17 @@
 # YOLO ROS: Real-Time Object Detection for ROS
 
+## Installation
+NOTE: This assumes you already have ROS kinetic installed.  
+Set up folders, pull code, and compile:
+
+    `mkdir -p ~/ros/src/darknet_ros && cd ~/ros/src/darknet_ros && git init`  
+    `git remote add gh git@github.com:westpoint-robotics/darknet-yolov3-ros.git && git pull gh master`  
+    `echo "export DARKNET_PATH=~/ros/src/darknet_ros/darknet" >> ~/.bashrc`  
+    `cp ~/ros/src/darknet_ros/darknet_ros/build_darknet.bash ~/ros/`  
+    `cd ~/ros && bash build_darknet.bash`  
+
+For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/
+
 ## Overview
 
 This is a ROS package developed for object detection in camera images. You only look once (YOLO) is a state-of-the-art, real-time object detection system. In the following ROS package you are able to use YOLO (V3) on GPU and CPU. The pre-trained model of the convolutional neural network is able to detect pre-trained classes including the data set from VOC and COCO, or you can also create a network with your own detection objects. For more information about YOLO, Darknet, available training data and training YOLO see the following link: [YOLO: Real-Time Object Detection](http://pjreddie.com/darknet/yolo/).
@@ -48,20 +60,7 @@ URL: https://github.com/leggedrobotics/darknet_ros, 2018.
       year = {2016--2018},
     }
 
-## Installation
-Set up folders, pull code, and compile:
 
-    mkdir ~/darknet && cd ~/darknet && git init
-    git remote add gh git@github.com:benjaminabruzzo/darknet.git && git pull gh master && make
-
-
-    mkdir -p ~/ros/src/darknet_ros && cd ~/ros/src/darknet_ros && git init
-    git remote add gh git@github.com:benjaminabruzzo/darknet_ros.git && git pull gh master
-    echo "export DARKNET_PATH=~/ros/src/darknet_ros/darknet" >> ~/.bashrc
-
-    cp ~/ros/src/darknet_ros/darknet_ros/build_darknet.bash ~/ros/
-
-For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/
 
 ### Dependencies
 
