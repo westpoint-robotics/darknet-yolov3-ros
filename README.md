@@ -4,11 +4,11 @@
 NOTE: This assumes you already have ROS kinetic installed.  
 Set up folders, pull code, and compile:
 
-    `mkdir -p ~/ros/src/darknet_ros && cd ~/ros/src/darknet_ros && git init`  
-    `git remote add gh git@github.com:westpoint-robotics/darknet-yolov3-ros.git && git pull gh master`  
-    `echo "export DARKNET_PATH=~/ros/src/darknet_ros/darknet" >> ~/.bashrc`  
-    `cp ~/ros/src/darknet_ros/darknet_ros/build_darknet.bash ~/ros/`  
-    `cd ~/ros && bash build_darknet.bash`  
+    mkdir -p ~/ros/src/darknet_ros && cd ~/ros/src/darknet_ros && git init
+    git remote add gh git@github.com:westpoint-robotics/darknet-yolov3-ros.git && git pull gh master
+    echo "export DARKNET_PATH=~/ros/src/darknet_ros/darknet" >> ~/.bashrc
+    cp ~/ros/src/darknet_ros/darknet_ros/build_darknet.bash ~/ros/
+    cd ~/ros && bash build_darknet.bash
 
 For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/
 
