@@ -14,7 +14,7 @@ For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in
 For the non-ros version of darknet-yolov3 see [this repo](https://github.com/westpoint-robotics/darknet-yolov3)
 
 
-## Simple Launch 
+## Quick start
 ROS topics and options can be changed in the ./darknet_ros/darknet_ros/config/ros.yaml file  
 
 To launch the yolov3 detector with the ros.yaml topics configuration:
