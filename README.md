@@ -10,7 +10,9 @@ Set up folders, pull code, and compile:
     cp ~/ros/src/darknet_ros/darknet_ros/build_darknet.bash ~/ros/
     cd ~/ros && bash build_darknet.bash
 
-For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/
+For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/  
+For the non-ros version of darknet-yolov3 see [this repo](https://github.com/westpoint-robotics/darknet-yolov3)
+
 
 ## Overview
 
