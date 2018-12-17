@@ -14,6 +14,14 @@ For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in
 For the non-ros version of darknet-yolov3 see [this repo](https://github.com/westpoint-robotics/darknet-yolov3)
 
 
+## Simple Launch 
+ROS topics and options can be changed in the ./darknet_ros/darknet_ros/config/ros.yaml file  
+
+To launch the yolov3 detector with the ros.yaml topics configuration:
+
+    roslaunch darknet_ros yolo_v3.launch
+
+
 ## Overview
 
 This is a ROS package developed for object detection in camera images. You only look once (YOLO) is a state-of-the-art, real-time object detection system. In the following ROS package you are able to use YOLO (V3) on GPU and CPU. The pre-trained model of the convolutional neural network is able to detect pre-trained classes including the data set from VOC and COCO, or you can also create a network with your own detection objects. For more information about YOLO, Darknet, available training data and training YOLO see the following link: [YOLO: Real-Time Object Detection](http://pjreddie.com/darknet/yolo/).
