@@ -1,7 +1,7 @@
 yolo_model:
 
   config_file:
-    name: yolo-pistols.cfg
+    name: yolov3-tiny.cfg
   weight_file:
     name: yolo-pistols.weights
   threshold:

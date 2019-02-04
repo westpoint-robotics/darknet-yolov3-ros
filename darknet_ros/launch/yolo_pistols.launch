@@ -1,11 +1,11 @@
 <launch>
 	<!-- Console launch prefix -->
-	<arg name="launcher"	default="yolo"/>
-	<arg name="launch_prefix" default=""/>
+	<arg name="launcher"			default="yolo"/>
+	<arg name="launch_prefix" 		default=""/>
 
 	<!-- Config and weights folder. -->
-	<arg name="yolo_weights_path"          default="$(find darknet_ros)/yolo_network_config/weights"/>
-	<arg name="yolo_config_path"           default="$(find darknet_ros)/yolo_network_config/cfg"/>
+	<arg name="yolo_weights_path"   default="$(find darknet_ros)/yolo_network_config/weights"/>
+	<arg name="yolo_config_path"    default="$(find darknet_ros)/yolo_network_config/cfg"/>
 
 	<!-- Load parameters -->
 	<rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
@@ -13,18 +13,18 @@
 
 	<!-- Start darknet and ros wrapper -->
 	<node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)">
-		<param name="weights_path"          value="$(arg yolo_weights_path)" />
-		<param name="config_path"           value="$(arg yolo_config_path)" />
+		<param name="weights_path"  value="$(arg yolo_weights_path)" />
+		<param name="config_path"   value="$(arg yolo_config_path)" />
 	</node>
 
 	<include file="$(find stop)/launch/listener.launch">
-		<arg name="launcher"	default="$(arg launcher)" />
-		<arg name="stop_topic"	default="/stop/shutdown" />
+		<arg name="launcher"		default="$(arg launcher)" />
+		<arg name="stop_topic"		default="/stop/shutdown" />
 	</include>
 
 	<include file="$(find stop)/launch/trigger.launch">
-		<arg name="launcher" 	default="$(arg launcher)" />
-		<arg name="stop_topic"	default="/stop/shutdown" />
+		<arg name="launcher" 		default="$(arg launcher)" />
+		<arg name="stop_topic"		default="/stop/shutdown" />
 	</include>
 
 	<!--<node name="republish" type="republish" pkg="image_transport" output="screen" 	args="compressed in:=/front_camera/image_raw raw out:=/camera/image_raw" /> -->
