@@ -11,8 +11,8 @@ Set up folders, pull code, and compile:
     cd ~/ros && bash build_darknet.bash
 
 
-    rclone sync ~/ros/src/darknet_ros/darknet/cfg threatdrive:/Threat_Detection/cfg -v
-    rclone sync ~/ros/src/darknet_ros/darknet/data threatdrive:/Threat_Detection/data -v
+    rclone sync threatdrive:/Threat_Detection/cfg ~/ros/src/darknet_ros/darknet/cfg -v
+    rclone sync threatdrive:/Threat_Detection/data ~/ros/src/darknet_ros/darknet/data -v
 
 For code used to installl cuda and nvidia drivers on ubuntu 16.04, see script in : https://github.com/benjaminabruzzo/darknet_ros/install_help/  
 For the non-ros version of darknet-yolov3 see [this repo](https://github.com/westpoint-robotics/darknet-yolov3)
