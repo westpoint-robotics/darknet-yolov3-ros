@@ -3,12 +3,14 @@
   <arg name="launch_prefix" default=""/>
 
   <!-- Config and weights folder. -->
-  <arg name="yolo_weights_path"          default="$(find darknet_ros)/yolo_network_config/weights"/>
-  <arg name="yolo_config_path"           default="$(find darknet_ros)/yolo_network_config/cfg"/>
+  <arg name="yolo_weights_path"   default="$(find darknet_ros)/yolo_network_config/weights"/>
+  <arg name="yolo_config_path"    default="$(find darknet_ros)/yolo_network_config/cfg"/>
+  <arg name="yolo_param_path"     default="$(find darknet_ros)/config/yolov3.yaml"/>
+  <arg name="ros_param_path"      default="$(find darknet_ros)/config/ros.yaml"/>
 
   <!-- Load parameters -->
-  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/ros.yaml"/>
-  <rosparam command="load" ns="darknet_ros" file="$(find darknet_ros)/config/yolov3.yaml"/>
+  <rosparam command="load" ns="darknet_ros" file="$(arg yolo_param_path)"/>
+  <rosparam command="load" ns="darknet_ros" file="$(arg ros_param_path)"/>
 
   <!-- Start darknet and ros wrapper -->
   <!-- <node pkg="darknet_ros" type="darknet_ros" name="darknet_ros" output="screen" launch-prefix="$(arg launch_prefix)"> -->

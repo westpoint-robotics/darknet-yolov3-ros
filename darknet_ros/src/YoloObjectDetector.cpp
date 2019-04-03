@@ -94,8 +94,7 @@ void YoloObjectDetector::init()
   nodeHandle_.param("yolo_model/threshold/value", thresh, (float) 0.3);
 
   // Path to weights file.
-  nodeHandle_.param("yolo_model/weight_file/name", weightsModel,
-                    std::string("yolov2-tiny.weights"));
+  nodeHandle_.param("yolo_model/weight_file/name", weightsModel, std::string("yolov2-tiny.weights"));
   nodeHandle_.param("weights_path", weightsPath, std::string("/default"));
   weightsPath += "/" + weightsModel;
   weights = new char[weightsPath.length() + 1];
@@ -122,8 +121,7 @@ void YoloObjectDetector::init()
   }
 
   // Load network.
-  setupNetwork(cfg, weights, data, thresh, detectionNames, numClasses_,
-                0, 0, 1, 0.5, 0, 0, 0, 0);
+  setupNetwork(cfg, weights, data, thresh, detectionNames, numClasses_, 0, 0, 1, 0.5, 0, 0, 0, 0);
   yoloThread_ = std::thread(&YoloObjectDetector::yolo, this);
 
   // Initialize publisher and subscriber.
@@ -139,24 +137,19 @@ void YoloObjectDetector::init()
   int detectionImageQueueSize;
   bool detectionImageLatch;
 
-  nodeHandle_.param("subscribers/camera_reading/topic", cameraTopicName,
-                    std::string("/camera/image_raw"));
+  nodeHandle_.param("subscribers/camera_reading/topic", cameraTopicName, std::string("/camera/image_raw"));
   nodeHandle_.param("subscribers/camera_reading/queue_size", cameraQueueSize, 1);
-  nodeHandle_.param("publishers/object_detector/topic", objectDetectorTopicName,
-                    std::string("found_object"));
+  nodeHandle_.param("publishers/object_detector/topic", objectDetectorTopicName, std::string("found_object"));
   nodeHandle_.param("publishers/object_detector/queue_size", objectDetectorQueueSize, 1);
   nodeHandle_.param("publishers/object_detector/latch", objectDetectorLatch, false);
-  nodeHandle_.param("publishers/bounding_boxes/topic", boundingBoxesTopicName,
-                    std::string("bounding_boxes"));
+  nodeHandle_.param("publishers/bounding_boxes/topic", boundingBoxesTopicName, std::string("bounding_boxes"));
   nodeHandle_.param("publishers/bounding_boxes/queue_size", boundingBoxesQueueSize, 1);
   nodeHandle_.param("publishers/bounding_boxes/latch", boundingBoxesLatch, false);
-  nodeHandle_.param("publishers/detection_image/topic", detectionImageTopicName,
-                    std::string("detection_image"));
+  nodeHandle_.param("publishers/detection_image/topic", detectionImageTopicName, std::string("detection_image"));
   nodeHandle_.param("publishers/detection_image/queue_size", detectionImageQueueSize, 1);
   nodeHandle_.param("publishers/detection_image/latch", detectionImageLatch, true);
 
-  imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize,
-                                               &YoloObjectDetector::cameraCallback, this);
+  imageSubscriber_ = imageTransport_.subscribe(cameraTopicName, cameraQueueSize, &YoloObjectDetector::cameraCallback, this);
   objectPublisher_ = nodeHandle_.advertise<std_msgs::Int8>(objectDetectorTopicName,
                                                            objectDetectorQueueSize,
                                                            objectDetectorLatch);
